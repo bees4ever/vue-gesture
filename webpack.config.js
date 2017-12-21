@@ -6,10 +6,10 @@ var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 //var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
-  entry: './vue-gesture.js',
+  entry: './vue2-gesture.js',
   output: {
     path:'./dist',
-    filename: 'vue-gesture.js'
+    filename: 'vue2-gesture.js'
   },
   plugins: [
     new uglifyJsPlugin({
@@ -19,7 +19,7 @@ module.exports = {
       except: ['$super', '$', 'exports', 'require']    //排除关键字
     }),
     // new HtmlwebpackPlugin({
-    //   title: 'vue-gesture'
+    //   title: 'vue2-gesture'
     // }),
     /*new OpenBrowserPlugin({
       url: 'http://localhost:8080'

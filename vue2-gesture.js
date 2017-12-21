@@ -9,12 +9,12 @@
 // touchstart touchmove touchend - These equivalent to touch the primary event
 
 ;(function(){
-  if(vueGesture && vueGesture.config && vueGesture.config.id === "vue-Gesture@ylminglmingming@gmail.com") return;
+  if(vueGesture && vueGesture.config && vueGesture.config.id === "vue2-Gesture@bees4ever.de") return;
   var vueGesture = {};
   vueGesture.gloabal = {
-    id: "vue-Gesture@ylminglmingming@gmail.com",
+    id: "vue2-Gesture@bees4ever.de",
     domUuid : 1,
-    InternalKeyName : "vueGestureInternalKey"
+    InternalKeyName : "vue2GestureInternalKey"
   }
   vueGesture.domCaches = {};
   vueGesture.util={
@@ -280,7 +280,7 @@
   };
 
 
-    Vue.component('vue-gesture', {
+    Vue.component('vue2-gesture', {
         template: '<span><slot></slot></span>',
         props: {
             type: {type: String, default: function () { return "touch" }},
