@@ -1,6 +1,10 @@
 # vue2-gesture
 
-> gesture events plugin for Vue.js 2. You can v-gesture directive,and directive auguments can use a tap, swipe, touchstart etc.When you are in the use of the PC，"tap, longtap, touchstart" Will automatically be converted to "click".
+> **Vue2 Gesture** is a Vue.js plugin based on the plugin from https://github.com/mlyknown/vue-gesture.
+ >I forked it and made it run under Vue.Js 2, because the old one only runs with Vue.Js.
+ See the example for how to use this plugin, simply it's now a component so not a directive anymore
+ There are a bunch of arguments you can use, i.e. tap, swipe, touchstart etc. 
+ When you are in the use of the PC，"tap, longtap, touchstart" will automatically be converted to "click".
 
 - tap — fires when the element is tapped.
 - doubleTap — this pair of events can be used to detect double taps on the same element
@@ -13,7 +17,7 @@
 
 #### CommonJS
 
-- Available through npm as `vue2-gesture`.
+- Available through npm as `vue2-gesture`. So simply run `npm install vue2-gesture`. Then you can use it as follows:
 
   ``` js
   var VueGesture = require('vue2-gesture')
@@ -26,7 +30,7 @@
 
 ## Usage
 
-#### Using the `v-gesture` directive
+#### Using the `vue2-gesture` component
 
 ``` html
 <vue2-gesture :type="'touchstart'"  :call="handleComponent.bind(this,'touchstart')" >touchstart</vue2-gesture>
@@ -43,6 +47,19 @@
   <vue2-gesture :type="'click'"  :call="handleComponent.bind(this,'click')">click</vue2-gesture>
 
 ```
+
+Where `handleComponent` is a method in your Vue.js web-application. `handleComponent` should understand this two parameters:
+
+  ``` js
+ handleComponent: function(str,e){
+             // str is the second input, like 'longTap', 'touchmove', 
+             // there you can pass some information to the handler 
+             // e is the element itself, you may use it or not
+             var html = e.srcElement.innerHTML;
+             e.srcElement.innerHTML=html+" "+str;
+             console.log(str);
+         }
+  ```
 
 #### Configuring Recognizer Options
 
