@@ -20,6 +20,8 @@
 - Available through npm as `vue2-gesture`. So simply run `npm install vue2-gesture`. Then you can use it as follows:
 
   ``` js
+  // You may use: 
+    window.Vue = Vue;
   var VueGesture = require('vue2-gesture')
   Vue.use(VueGesture)
   ```
@@ -32,12 +34,15 @@
 
 #### Using the `vue2-gesture` component
 
+You can add a single event with the `type` parameter or you add a set of events with the `types` parameter which is
+a javascript array.
+
 ``` html
-<vue2-gesture :type="'touchstart'"  :call="handleComponent.bind(this,'touchstart')" >touchstart</vue2-gesture>
+  <vue2-gesture :type="'touchstart'"  :call="handleComponent.bind(this,'touchstart')" >touchstart</vue2-gesture>
   <vue2-gesture :type="'touchmove'"  :call="handleComponent.bind(this,'touchmove')" ><i>touchmove</i></vue2-gesture>
   <vue2-gesture :type="'touchend'"  :call="handleComponent.bind(this,'touchend')" >touchend</vue2-gesture>
-  <vue2-gesture :type="'tab'"  :call="handleComponent.bind(this,'tab')" >tap</vue2-gesture>
   <vue2-gesture :type="'doubletap'"  :call="handleComponent.bind(this,'doubletap')">doubleTap</vue2-gesture>
+  <vue2-gesture :type="'tap'"  :call="handleComponent.bind(this,'tap')">tap</vue2-gesture>
   <vue2-gesture :type="'longTap'"  :call="handleComponent.bind(this,'longTap')">longTap</vue2-gesture>
   <vue2-gesture :type="'swipe'"  :call="handleComponent.bind(this,'swipe')">swipe</vue2-gesture>
   <vue2-gesture :type="'swipeLeft'"  :call="handleComponent.bind(this,'swipeLeft')">swipeLeft</vue2-gesture>
@@ -45,6 +50,7 @@
   <vue2-gesture :type="'swipeUp'"  :call="handleComponent.bind(this,'swipeUp')">swipeUp</vue2-gesture>
   <vue2-gesture :type="'swipeDown'"  :call="handleComponent.bind(this,'swipeDown')">swipeDown</vue2-gesture>
   <vue2-gesture :type="'click'"  :call="handleComponent.bind(this,'click')">click</vue2-gesture>
+  <vue2-gesture :types="['swipeDown','click']"   :call="handleComponent.bind(this,'EVENT')" >swipeDown and click</vue2-gesture>
 
 ```
 

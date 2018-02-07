@@ -20,8 +20,8 @@
   <vue2-gesture :type="'touchstart'"  :call="handleComponent.bind(this,'touchstart')" >touchstart</vue2-gesture>
   <vue2-gesture :type="'touchmove'"  :call="handleComponent.bind(this,'touchmove')" ><i>touchmove</i></vue2-gesture>
   <vue2-gesture :type="'touchend'"  :call="handleComponent.bind(this,'touchend')" >touchend</vue2-gesture>
-  <vue2-gesture :type="'tab'"  :call="handleComponent.bind(this,'tab')" >tap</vue2-gesture>
   <vue2-gesture :type="'doubletap'"  :call="handleComponent.bind(this,'doubletap')">doubleTap</vue2-gesture>
+  <vue2-gesture :type="'tap'"  :call="handleComponent.bind(this,'tap')">tap</vue2-gesture>
   <vue2-gesture :type="'longTap'"  :call="handleComponent.bind(this,'longTap')">longTap</vue2-gesture>
   <vue2-gesture :type="'swipe'"  :call="handleComponent.bind(this,'swipe')">swipe</vue2-gesture>
   <vue2-gesture :type="'swipeLeft'"  :call="handleComponent.bind(this,'swipeLeft')">swipeLeft</vue2-gesture>
@@ -29,6 +29,7 @@
   <vue2-gesture :type="'swipeUp'"  :call="handleComponent.bind(this,'swipeUp')">swipeUp</vue2-gesture>
   <vue2-gesture :type="'swipeDown'"  :call="handleComponent.bind(this,'swipeDown')">swipeDown</vue2-gesture>
   <vue2-gesture :type="'click'"  :call="handleComponent.bind(this,'click')">click</vue2-gesture>
+  <vue2-gesture :types="['swipeDown','click']"   :call="handleComponent.bind(this,'EVENT')" >swipeDown and click</vue2-gesture>
 
 </div>
 

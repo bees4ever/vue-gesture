@@ -328,8 +328,9 @@
     Vue.component('vue2-gesture', {
         template: '<span><slot></slot></span>',
         props: {
-            type: {type: String, default: function () { return "touch" }},
-            call: {type: Function }
+            type: {type: String, default: function () { return null }},
+            call: {type: Function },
+            types: {type: Array, default : function (){return []}}
 
         },
         mounted: function () {
@@ -339,15 +340,33 @@
               console.log(this.call);
                 return console.error('The expression of directive "v-gesture" must be a function!');
             }
-            var eventName = vueGesture.Statics.getEventNameByArg(this.type);
-            var domCache = vueGesture.Statics.getDomCache(this.$el);
-            if(!eventName) {
-                //console.error("self.arg not correct argument;");
-                return;
-            }
-            domCache.gestureEvents[eventName] = {};
-            domCache.gestureEvents[eventName].fn = this.call;
 
+            var all_types = [];
+
+            if(this.type != null)
+            {
+                all_types.push(this.type);
+            }
+
+
+
+            for(var i in this.types)
+            {
+                all_types.push(this.types[i])
+            }
+
+            for(var i in all_types)
+            {
+
+              var eventName = vueGesture.Statics.getEventNameByArg(all_types[i]);
+              var domCache = vueGesture.Statics.getDomCache(this.$el);
+              if(!eventName) {
+                  console.error("self.arg not correct argument;");
+                  return;
+              }
+              domCache.gestureEvents[eventName] = {};
+              domCache.gestureEvents[eventName].fn = this.call;
+            }
 
         },
         data: function () {
