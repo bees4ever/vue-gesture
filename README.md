@@ -1,9 +1,9 @@
-# vue2-gesture
+# vue-gesture
 
-> **Vue2 Gesture** is a Vue.js plugin based on the plugin from https://github.com/mlyknown/vue-gesture.
- >I forked it and made it run under Vue.Js 2, because the old one only runs with Vue.Js.
- See the example for how to use this plugin, simply it's now a component so not a directive anymore
- There are a bunch of arguments you can use, i.e. tap, swipe, touchstart etc. 
+> **Vue-Gesture** is a simple Vue.js gesture events plugin.
+ >It runs now under Vue.js 2, which comes from a fork, to see here: https://github.com/bees4ever/vue2-gesture. The old version for Vue.js 1 is not longer available.
+ See the example for how to use this plugin, simply it's now a component and not a directive anymore.
+ There are a bunches of arguments you can use, i.e. tap, swipe, touchstart etc. 
  When you are in the use of the PC，"tap, longtap, touchstart" will automatically be converted to "click".
 
 - tap — fires when the element is tapped.
@@ -17,40 +17,41 @@
 
 #### CommonJS
 
-- Available through npm as `vue2-gesture`. So simply run `npm install vue2-gesture`. Then you can use it as follows:
+The updated version is available through npm as `vue2-gesture`. So simply run `npm install vue2-gesture`. Then you can use it as follows:
 
   ``` js
   // You may use: 
     window.Vue = Vue;
-  var VueGesture = require('vue2-gesture')
+  var VueGesture = require('vue2-gesture')
   Vue.use(VueGesture)
   ```
 
 #### Direct include
 
-- You can also directly include it with a `<script>` tag when you have Vue already included globally. It will automatically install itself, and will add a global `vueGesture`.
+You can also directly include it with a `<script>` tag when you have Vue already included globally. It will automatically install itself, and will add a global `vueGesture`.
 
 ## Usage
 
-#### Using the `vue2-gesture` component
+#### Using the `vue-gesture` component
+***WARNING: You may have to use <vue2-gesture> if you installed the npm version***
 
 You can add a single event with the `type` parameter or you add a set of events with the `types` parameter which is
 a javascript array.
 
 ``` html
-  <vue2-gesture :type="'touchstart'"  :call="handleComponent.bind(this,'touchstart')" >touchstart</vue2-gesture>
-  <vue2-gesture :type="'touchmove'"  :call="handleComponent.bind(this,'touchmove')" ><i>touchmove</i></vue2-gesture>
-  <vue2-gesture :type="'touchend'"  :call="handleComponent.bind(this,'touchend')" >touchend</vue2-gesture>
-  <vue2-gesture :type="'doubletap'"  :call="handleComponent.bind(this,'doubletap')">doubleTap</vue2-gesture>
-  <vue2-gesture :type="'tap'"  :call="handleComponent.bind(this,'tap')">tap</vue2-gesture>
-  <vue2-gesture :type="'longTap'"  :call="handleComponent.bind(this,'longTap')">longTap</vue2-gesture>
-  <vue2-gesture :type="'swipe'"  :call="handleComponent.bind(this,'swipe')">swipe</vue2-gesture>
-  <vue2-gesture :type="'swipeLeft'"  :call="handleComponent.bind(this,'swipeLeft')">swipeLeft</vue2-gesture>
-  <vue2-gesture :type="'swipeRight'"  :call="handleComponent.bind(this,'swipeRight')">swipeRight</vue2-gesture>
-  <vue2-gesture :type="'swipeUp'"  :call="handleComponent.bind(this,'swipeUp')">swipeUp</vue2-gesture>
-  <vue2-gesture :type="'swipeDown'"  :call="handleComponent.bind(this,'swipeDown')">swipeDown</vue2-gesture>
-  <vue2-gesture :type="'click'"  :call="handleComponent.bind(this,'click')">click</vue2-gesture>
-  <vue2-gesture :types="['swipeDown','click']"   :call="handleComponent.bind(this,'EVENT')" >swipeDown and click</vue2-gesture>
+ <vue-gesture :type="'touchstart'"  :call="handleComponent.bind(this,'touchstart')" >touchstart</vue-gesture>
+  <vue-gesture :type="'touchmove'"  :call="handleComponent.bind(this,'touchmove')" ><i>touchmove</i></vue-gesture>
+  <vue-gesture :type="'touchend'"  :call="handleComponent.bind(this,'touchend')" >touchend</vue-gesture>
+  <vue-gesture :type="'doubletap'"  :call="handleComponent.bind(this,'doubletap')">doubleTap</vue-gesture>
+  <vue-gesture :type="'tap'"  :call="handleComponent.bind(this,'tap')">tap</vue-gesture>
+  <vue-gesture :type="'longTap'"  :call="handleComponent.bind(this,'longTap')">longTap</vue-gesture>
+  <vue-gesture :type="'swipe'"  :call="handleComponent.bind(this,'swipe')">swipe</vue-gesture>
+  <vue-gesture :type="'swipeLeft'"  :call="handleComponent.bind(this,'swipeLeft')">swipeLeft</vue-gesture>
+  <vue-gesture :type="'swipeRight'"  :call="handleComponent.bind(this,'swipeRight')">swipeRight</vue-gesture>
+  <vue-gesture :type="'swipeUp'"  :call="handleComponent.bind(this,'swipeUp')">swipeUp</vue-gesture>
+  <vue-gesture :type="'swipeDown'"  :call="handleComponent.bind(this,'swipeDown')">swipeDown</vue-gesture>
+  <vue-gesture :type="'click'"  :call="handleComponent.bind(this,'click')">click</vue-gesture>
+  <vue-gesture :types="['swipeDown','click']"   :call="handleComponent.bind(this,'EVENT')" >swipeDown and click</vue-gesture>
 
 ```
 
@@ -66,6 +67,16 @@ Where `handleComponent` is a method in your Vue.js web-application. `handleCompo
              console.log(str);
          }
   ```
+  
+#### EDIT:
+
+A simpler way to handle vue-gesture events have been provided by @sjoerdloeve and uses this syntax:
+
+```
+<vue-gesture :type="'tap'" :call="() => { changeProperty = true}" >tap</vue-gesture>
+```
+_Where the type, of course, is changeable._
+
 
 #### Configuring Recognizer Options
 
@@ -84,4 +95,3 @@ See `/example` for a multi-event demo. To build it, run `npm install && npm run 
 ## License
 
 MIT
-
